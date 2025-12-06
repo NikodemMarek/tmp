@@ -1,4 +1,5 @@
 import { Directive } from '../types';
+import { Roadmap } from './Roadmap';
 
 type DirectiveDetailProps = {
   directive: Directive;
@@ -12,7 +13,7 @@ export const DirectiveDetail = ({ directive, onClose }: DirectiveDetailProps) =>
         <h2>{directive.title}</h2>
         <button onClick={onClose} className="close-button">Close</button>
       </div>
-      <p>This is a placeholder for the directive detail.</p>
+      <Roadmap currentStep={directive.currentStep} />
     </div>
   );
 };

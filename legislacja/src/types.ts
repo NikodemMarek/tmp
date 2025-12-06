@@ -3,4 +3,5 @@ export type Directive = {
   creationDate: string;
   status: 'in progress' | 'completed' | 'cancelled';
   description: string;
+  currentStep: number;
 };
