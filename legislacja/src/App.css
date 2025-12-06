@@ -95,20 +95,31 @@
   gap: 1rem;
 }
 
-.roadmap-step {
-  display: flex;
-  align-items: center;
+.roadmap-step-container {
   position: relative;
+  margin-bottom: 1rem;
 }
 
-.roadmap-step:not(:last-child)::before {
+.roadmap-step-container:not(:last-child)::before {
   content: '';
   position: absolute;
   left: 10px;
   top: 20px;
   width: 2px;
-  height: 100%;
+  height: calc(100% - 10px);
   background-color: #ddd;
+  z-index: 0;
+}
+
+.roadmap-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
 }
 
 .roadmap-dot {
@@ -117,6 +128,7 @@
   border-radius: 50%;
   background-color: #ddd;
   z-index: 1;
+  flex-shrink: 0;
 }
 
 .roadmap-dot.active {
@@ -129,4 +141,12 @@
 
 .roadmap-label {
   margin-left: 1rem;
+  flex-grow: 1;
+}
+
+.roadmap-details {
+  margin-left: 2rem; /* Align with the label */
+  padding: 1rem;
+  border-left: 2px solid #eee;
+  margin-top: 0.5rem;
 }
