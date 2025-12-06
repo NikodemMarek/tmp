@@ -50,7 +50,7 @@ export const DirectiveDetail = ({ directive, onClose }: DirectiveDetailProps) =>
         )}
         {/* New notification button */}
         <button className="notification-button" onClick={() => alert('Zostaniesz powiadomiony o zmianach.')}>
-          Powiadom o zmianach
+          Wysyłaj powiadomienia o zmianach
         </button>
       </div>
       {isActProposal && <DiscussionSection />} {/* Use the new DiscussionSection component */}

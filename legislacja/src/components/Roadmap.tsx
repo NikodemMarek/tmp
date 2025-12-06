@@ -30,10 +30,10 @@ export const Roadmap = ({ currentStep, stepDetails }: RoadmapProps) => {
         }
 
         return (
-          <div key={step} className="roadmap-step-container">
+          <div key={step.name} className="roadmap-step-container">
             <button className="roadmap-button" onClick={() => handleStepClick(index)}>
               <div className={`roadmap-dot ${dotClassName}`} />
-              <div className="roadmap-label">{step}</div>
+              <div className="roadmap-label">{step.name}</div>
             </button>
             {selectedStep === index && detail && (
               <div className="roadmap-details">

@@ -1,12 +1,12 @@
-// filepath: src/App.tsx
 import { useState, useMemo } from 'react';
 import { DirectiveList } from './components/DirectiveList';
 import { directives } from './mockData';
 import { Directive } from './types';
 import { DirectiveDetail } from './components/DirectiveDetail';
 import { SearchBar } from './components/SearchBar';
-import { ActProposalsList } from './components/ActProposalsList'; // Import the new component
-import { actProposals } from './mockActProposals'; // Import the mock data for act proposals
+import { ActProposalsList } from './components/ActProposalsList';
+import { actProposals as initialActProposals } from './mockActProposals'; // Rename import
+import { AddActProposalModal } from './components/AddActProposalModal'; // Import the new modal component
 import './App.css';
 
 type Page = 'directives' | 'actProposals';
@@ -15,13 +15,14 @@ function App() {
   const [currentPage, setCurrentPage] = useState<Page>('directives');
   const [selectedDirective, setSelectedDirective] = useState<Directive | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false); // State for modal visibility
+  const [currentActProposals, setCurrentActProposals] = useState<Directive[]>(initialActProposals); // State for act proposals
 
   const handleSelectDirective = (directive: Directive) => {
     setSelectedDirective(directive);
   };
 
   const handleSelectActProposal = (actProposal: Directive) => {
-    // For now, treat act proposals details similarly to directives
     setSelectedDirective(actProposal);
   };
 
@@ -29,15 +30,31 @@ function App() {
     setSearchQuery(query);
   };
 
+  const handleAddActProposal = (newActProposal: Directive) => {
+    setCurrentActProposals((prevProposals) => [
+      ...prevProposals,
+      { ...newActProposal, id: `act-${Date.now()}` }, // Assign a simple ID for now
+    ]);
+    setIsAddModalOpen(false); // Close modal after adding
+  };
+
   const filteredItems = useMemo(() => {
-    const items = currentPage === 'directives' ? directives : actProposals;
     const lowerCaseQuery = searchQuery.toLowerCase();
-    return items.filter(
-      (item) =>
-        (item.title.toLowerCase().includes(lowerCaseQuery) ||
-          item.description.toLowerCase().includes(lowerCaseQuery))
-    );
-  }, [currentPage, searchQuery]);
+    
+    if (currentPage === 'directives') {
+      return directives.filter(
+        (directive) =>
+          (directive.title.toLowerCase().includes(lowerCaseQuery) ||
+            directive.description.toLowerCase().includes(lowerCaseQuery))
+      );
+    } else { // currentPage === 'actProposals'
+      return currentActProposals.filter( // Use currentActProposals here
+        (actProposal) =>
+          actProposal.title.toLowerCase().includes(lowerCaseQuery) ||
+          actProposal.description.toLowerCase().includes(lowerCaseQuery)
+      );
+    }
+  }, [currentPage, searchQuery, currentActProposals]); // Add currentActProposals to dependencies
 
   return (
     <div className="app-container">
@@ -62,6 +79,9 @@ function App() {
         >
           Propozycje ustaw
         </button>
+        <button className="add-act-proposal-button" onClick={() => setIsAddModalOpen(true)}>
+          Dodaj Projekt Ustawy
+        </button>
       </div>
 
       <div className="main-content-container">
@@ -80,6 +100,13 @@ function App() {
           </div>
         )}
       </div>
+
+      {isAddModalOpen && (
+        <AddActProposalModal
+          onClose={() => setIsAddModalOpen(false)}
+          onSubmit={handleAddActProposal}
+        />
+      )}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 export type Directive = {
+  id: string; // Add a unique ID for each directive
   title: string;
   creationDate: string;
   status: 'w toku' | 'ukończono' | 'anulowano';

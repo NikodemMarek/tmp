@@ -9,7 +9,7 @@ export const DirectiveList = ({ directives, onSelectDirective }: DirectiveListPr
   return (
     <div className="directive-list">
       {directives.map((directive) => (
-        <div className="directive-card" key={directive.title}>
+        <div className="directive-card" key={directive.id}>
           <div className="card-header">
             <h2>{directive.title}</h2>
             <span className={`status status-${directive.status.replace(' ', '-')}`}>
