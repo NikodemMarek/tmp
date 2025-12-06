@@ -1,5 +1,4 @@
 import { Directive } from '../types';
-import { DiscussionSection } from './DiscussionSection';
 
 type ActProposalsListProps = {
   actProposals: Directive[];

@@ -1,3 +1,12 @@
+.card {
+  background-color: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  box-shadow: 0 4px 8px rgba(28, 27, 31, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -24,17 +33,17 @@
 
 .header button {
   padding: 10px 20px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--md-sys-color-outline);
   border-radius: 5px;
-  background-color: #f0f0f0;
+  background-color: var(--md-sys-color-surface-variant);
   cursor: pointer;
   font-size: 1rem;
 }
 
 .header button.active {
-  background-color: #007bff;
-  color: white;
-  border-color: #007bff;
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border-color: var(--md-sys-color-primary);
 }
 
 .add-act-proposal-button {
@@ -167,18 +176,16 @@
 }
 
 .directive-card {
-  background-color: var(--md-sys-color-surface);
-  border: 1px solid var(--md-sys-color-outline);
-  border-radius: 0.75rem; /* Slightly increased border-radius for a softer look */
-  padding: 1.25rem; /* Adjusted padding */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Softer, more modern shadow */
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   cursor: pointer;
 }
 
-.directive-card:hover {
+.directive-card:hover, .act-proposal-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 12px rgba(28, 27, 31, 0.1);
+}
+
+.act-proposal-card {
+  cursor: pointer;
 }
 
 .card-header {
@@ -217,14 +224,14 @@
 .signatures-collected {
   padding: 5px 10px;
   border-radius: 5px;
-  color: white;
+  color: var(--md-sys-color-on-primary);
   font-weight: bold;
-  background-color: #007bff; /* Example color, can be adjusted */
+  background-color: var(--md-sys-color-primary); /* Example color, can be adjusted */
 }
 
 .mobywatel-button {
-  background-color: #28a745; /* Green color for mObywatel */
-  color: white;
+  background-color: var(--md-sys-color-secondary); /* Green color for mObywatel */
+  color: var(--md-sys-color-on-secondary);
   border: none;
   padding: 10px 15px;
   border-radius: 5px;
@@ -234,7 +241,7 @@
 }
 
 .mobywatel-button:hover {
-  background-color: #218838;
+  background-color: #00BFA5;
 }
 
 .notification-button {
@@ -730,11 +737,7 @@
 }
 
 .directive-detail-card {
-  background-color: var(--md-sys-color-surface);
-  border: 1px solid var(--md-sys-color-outline);
-  border-radius: 0.75rem;
   padding: 1.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .directive-properties {
@@ -773,7 +776,7 @@
 }
 
 .close-button:hover {
-  background-color: #9C001C; /* Darker red on hover, derived from MD error */
+  background-color: #8C001A; /* Darker red on hover, derived from MD error */
 }
 
 .roadmap {
