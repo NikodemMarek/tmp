@@ -150,3 +150,12 @@
   border-left: 2px solid #eee;
   margin-top: 0.5rem;
 }
+
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
