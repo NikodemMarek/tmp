@@ -81,12 +81,14 @@ export const DiscussionSection: React.FC<DiscussionSectionProps> = ({ actProposa
           value={newCommentContent}
           onChange={(e) => setNewCommentContent(e.target.value)}
         ></textarea>
+        <div>
         <button onClick={() => handleAddComment(replyingTo)}>
           {replyingTo ? 'Dodaj odpowiedź' : 'Dodaj komentarz'}
         </button>
         {replyingTo && (
           <button className="cancel-reply-button" onClick={() => setReplyingTo(null)}>Anuluj odpowiedź</button>
         )}
+        </div>
       </div>
       <ul className="comments-list">
         {comments.map((comment) => (

@@ -20,7 +20,7 @@ export const DirectiveList = ({ directives, onSelectDirective }: DirectiveListPr
           </div>
           <h2>{directive.title}</h2>
           <p>{directive.description}</p>
-          <button onClick={() => onSelectDirective(directive)}>Pokaż</button>
+          <button onClick={() => onSelectDirective(directive)}>Szczegóły</button>
         </li>
       ))}
     </ul>

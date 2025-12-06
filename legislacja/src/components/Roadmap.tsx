@@ -37,17 +37,17 @@ export const Roadmap = ({ currentStep, stepDetails }: RoadmapProps) => {
     setAiSummaryText(null); // Clear previous summary
     const linksText = fileLinks.map(link => `- ${link.name}: ${link.url}`).join('\n');
     const mockupSummary = `
-      <h3>Mock AI Summary</h3>
-      <p>This is a simulated AI-generated summary of the linked documents. In a real application, an AI would process the content of these documents and extract key information.</p>
-      <h4>Key Points:</h4>
+      <h3>Podsumowanie AI (symulacja)</h3>
+      <p>To jest przykładowe podsumowanie wygenerowane przez AI na podstawie powiązanych dokumentów dotyczących projektu ustawy. W rzeczywistej aplikacji AI analizowałoby treść tych dokumentów i wyodrębniło najważniejsze informacje.</p>
+      <h4>Najważniejsze punkty:</h4>
       <ul>
-        <li><strong>Document 1 (e.g., ${fileLinks[0]?.name || 'Document A'}):</strong> Focuses on the regulatory framework and compliance requirements.</li>
-        <li><strong>Document 2 (e.g., ${fileLinks[1]?.name || 'Document B'}):</strong> Details the technical specifications and implementation guidelines.</li>
-        <li><strong>Overall Impact:</strong> The documents collectively outline a comprehensive approach to addressing [specific topic related to directive].</li>
+        <li><strong>Dokument 1 (np. ${fileLinks[0]?.name || 'Dokument A'}):</strong> Opisuje ramy prawne oraz wymagania zgodności związane z ustawą.</li>
+        <li><strong>Dokument 2 (np. ${fileLinks[1]?.name || 'Dokument B'}):</strong> Zawiera szczegółowe wytyczne techniczne oraz zalecenia wdrożeniowe.</li>
+        <li><strong>Wpływ ustawy:</strong> Dokumenty wspólnie przedstawiają kompleksowe podejście do regulacji wybranego obszaru.</li>
       </ul>
-      <h4>Linked Documents:</h4>
+      <h4>Powiązane dokumenty:</h4>
       <pre>${linksText}</pre>
-      <p><em>(Note: This is a placeholder summary.)</em></p>
+      <p><em>(Uwaga: To jest przykładowe podsumowanie.)</em></p>
     `;
 
 
@@ -115,7 +115,7 @@ export const Roadmap = ({ currentStep, stepDetails }: RoadmapProps) => {
                       disabled={isSummarizing} // Disable button while summarizing
                       style={{ marginTop: '1rem', cursor: isSummarizing ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
                     >
-                      {isSummarizing ? '🔄 Summarizing...' : '🤖 Summarize Documents'}
+                      {isSummarizing ? '🔄 Analizowanie dokumentów...' : '🤖 Podsumuj dokumenty'}
                     </button>
                     {aiSummaryText && (
                       <div className="ai-summary-display" style={{ marginTop: '1rem', padding: '1rem', border: '1px solid var(--md-sys-color-outline)', borderRadius: '5px', backgroundColor: 'var(--md-sys-color-surface-container-lowest)' }}>

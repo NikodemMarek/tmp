@@ -22,7 +22,7 @@ export const ActProposalsList = ({ actProposals, onSelectActProposal }: ActPropo
           </div>
           <h2>{actProposal.title}</h2>
           <p>{actProposal.description}</p>
-          <button onClick={() => onSelectActProposal(actProposal)}>Pokaż</button>
+          <button onClick={() => onSelectActProposal(actProposal)}>Szczegóły</button>
         </li>
       ))}
     </ul>
