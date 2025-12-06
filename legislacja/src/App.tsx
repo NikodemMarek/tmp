@@ -83,6 +83,9 @@ function App() {
         <button className="add-act-proposal-button" onClick={() => setIsAddModalOpen(true)}>
           Dodaj Propozycję Ustawy
         </button>
+        <button className="info-button" onClick={() => console.log('Info button clicked!')}>
+          ℹ️
+        </button>
         </nav>
 
         <SearchBar searchQuery={searchQuery} onSearchChange={handleSearchChange} />

@@ -83,6 +83,24 @@
   border-color: transparent;
 }
 
+.info-button {
+  background-color: var(--md-sys-color-surface); /* Light background */
+  color: var(--md-sys-color-on-surface); /* Dark text */
+  border: 1px solid var(--md-sys-color-outline);
+  padding: 10px 15px; /* Slightly less padding for an icon */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+  margin-left: 0.5rem; /* Small space from the previous button */
+}
+
+.info-button:hover {
+  background-color: var(--md-sys-color-on-surface-variant); /* Slightly darker on hover */
+  color: var(--md-sys-color-surface); /* Light text on hover */
+  border-color: var(--md-sys-color-on-surface-variant);
+}
+
 dialog.modal-overlay {
   border-radius: 5px;
   padding: 0;
@@ -588,14 +606,21 @@ button.roadmap-button:hover .roadmap-dot {
   margin-left: 1.75rem;
   padding: 0.75rem 1rem;
   border-left: 2px solid var(--md-sys-color-outline);
+  border-top: 2px solid black; /* New border */
+  border-right: 2px solid black; /* New border */
+  border-bottom: 2px solid black; /* New border */
   margin-top: 0.4rem;
-  background-color: var(--md-sys-color-surface-variant);
+  background-color: transparent; /* Changed */
   border-radius: 0 0.5rem 0.5rem 0;
 }
 
 .roadmap-details p {
   margin-bottom: 0.4rem;
   color: var(--md-sys-color-on-surface-variant);
+}
+
+.roadmap-details ul li a {
+  font-size: 1.15rem; /* Ensure file links are uniform */
 }
 
 .roadmap-details p:last-child {
@@ -629,6 +654,7 @@ button.roadmap-button:hover .roadmap-dot {
 }
 
 .description-text {
+  margin-top: 0;
   font-size: 1.15rem; /* Increased font size */
   line-height: 1.5;
   color: var(--md-sys-color-on-surface);

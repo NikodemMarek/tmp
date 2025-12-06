@@ -7,8 +7,21 @@ type RoadmapProps = {
   stepDetails?: Directive['stepDetails']; // Use the StepDetail type from Directive
 };
 
+const getStatusText = (status: 'ukończono' | 'w toku' | 'do zrobienia') => {
+  switch (status) {
+    case 'ukończono':
+      return 'Ukończono';
+    case 'w toku':
+      return 'W trakcie realizacji'; // More descriptive
+    case 'do zrobienia':
+      return 'Planowane'; // More descriptive
+    default:
+      return status;
+  }
+};
+
 export const Roadmap = ({ currentStep, stepDetails }: RoadmapProps) => {
-  const [selectedStep, setSelectedStep] = useState<number | null>(null);
+  const [selectedStep, setSelectedStep] = useState<number | null>(currentStep);
 
   const handleStepClick = (index: number) => {
     setSelectedStep(selectedStep === index ? null : index);
@@ -38,7 +51,7 @@ export const Roadmap = ({ currentStep, stepDetails }: RoadmapProps) => {
             </button>
             {selectedStep === index && detail && (
               <div className="roadmap-details">
-                <p><strong>Status:</strong> {detail.status}</p>
+                <p className="description-text"><strong>Status:</strong> {getStatusText(detail.status)}</p>
                 {detail.previousDescription ? (
                   <>
                     <p className="description-text"><strong>Zmiany w Opisie:</strong></p>

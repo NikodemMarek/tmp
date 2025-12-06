@@ -7,23 +7,23 @@ const generateStepDetails = (currentStepIndex: number, creationDateStr: string) 
 
   for (let i = 0; i < legislationSteps.length; i++) {
     const step = legislationSteps[i];
-    let stepDescription = '';
     let status: 'ukończono' | 'w toku' | 'do zrobienia';
-    let previousDescription = undefined;
+    let stepDescriptionText = 'Szczegóły dotyczące tego etapu procesu legislacyjnego.'; // Hardcoded sensible text
+    let previousDescriptionText = undefined; // Hardcoded to undefined for simplicity
 
     if (i < currentStepIndex) {
       currentDate.setDate(currentDate.getDate() + step.averageDurationDays);
-      stepDescription = `Zakończono: ${step.name} w dniu ${currentDate.toISOString().split('T')[0]}. Wszystkie niezbędne dokumenty zostały złożone i zatwierdzone.`;
-      previousDescription = `Stan początkowy: ${step.name} został rozpoczęty. Zarysowano podstawowe wymagania.`;
       status = 'ukończono';
+      stepDescriptionText = `Etap '${step.name}' został pomyślnie zakończony w dniu ${currentDate.toISOString().split('T')[0]}. W trakcie tego etapu, dokument został zaopiniowany przez odpowiednie komisje parlamentarne, a niezbędne poprawki zostały naniesione. Decyzja o ukończeniu etapu została podjęta po wnikliwej analizie zgodności z obowiązującym prawem.`;
+      previousDescriptionText = `Wstępne informacje dla etapu '${step.name}'.`;
     } else if (i === currentStepIndex) {
       currentDate.setDate(currentDate.getDate() + step.averageDurationDays / 2); // Halfway through for current step
-      stepDescription = `Obecnie w toku: ${step.name}. Oczekuje na opinie odpowiednich komisji/interesariuszy. Data rozpoczęcia etapu: ${currentDate.toISOString().split('T')[0]}.`;
       status = 'w toku';
+      stepDescriptionText = `Etap '${step.name}' jest obecnie w trakcie realizacji. Trwają konsultacje z ekspertami oraz zbieranie opinii od zainteresowanych stron. Przewiduje się, że w najbliższym czasie zostaną wprowadzone kluczowe zmiany wynikające z zgłoszonych uwag.`;
     } else {
       currentDate.setDate(currentDate.getDate() + step.averageDurationDays); // Add full duration for future steps
-      stepDescription = `Planowane: ${step.name}. Trwają przygotowania do nadchodzącej fazy. Orientacyjna data rozpoczęcia: ${currentDate.toISOString().split('T')[0]}.`;
       status = 'do zrobienia';
+      stepDescriptionText = `Etap '${step.name}' jest planowany do realizacji. Obecnie przygotowywana jest wstępna dokumentacja oraz harmonogram prac. Wkrótce rozpocznie się faza zbierania propozycji i sugestii od podmiotów zewnętrznych.`;
     }
 
     const fileLinks = [];
@@ -37,8 +37,8 @@ const generateStepDetails = (currentStepIndex: number, creationDateStr: string) 
     }
 
     details.push({
-      description: stepDescription,
-      previousDescription: previousDescription,
+      description: stepDescriptionText,
+      previousDescription: previousDescriptionText,
       status: status,
       fileLinks: fileLinks.length > 0 ? fileLinks : undefined, // Assign generated file links
     });
