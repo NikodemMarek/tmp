@@ -13,3 +13,19 @@ export type Directive = {
     status: 'ukończono' | 'w toku' | 'do zrobienia';
   }[];
 };
+
+export type User = {
+  id: string;
+  name: string;
+};
+
+export type Comment = {
+  id: string;
+  author: User;
+  timestamp: string;
+  content: string;
+  upvotes: number;
+  downvotes: number;
+  replies?: Comment[];
+};
+

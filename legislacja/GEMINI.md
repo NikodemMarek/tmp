@@ -26,14 +26,22 @@ The goal of this project is to create a web application that displays a list of 
     *   Previous steps are marked as "completed."
     *   Roadmap dots are clickable, expanding to show placeholder information for each step.
 
-5.  **Property-Based Search with Suggestions:**
+5.  **Notification and Interactive Discussion Features:**
+    *   A "Powiadom o zmianach" (Notify about changes) button has been added to the detail view, allowing users to subscribe to updates.
+    *   An interactive "Dyskusja Publiczna" (Public Discussion) section has been added to the act proposal detail view. This section now includes:
+        *   An input box for submitting new comments and replies.
+        *   A tree-like view for displaying example discussions and their replies.
+        *   Functionality to reply to existing comments.
+        *   Upvote and downvote buttons for individual comments.
+
+6.  **Property-Based Search with Suggestions:**
     *   A search bar allows users to filter directives.
     *   Supports free-text search across `title`, `description`, and `author`.
     *   Supports property-based filtering using `property:value` syntax (e.g., `status:completed`, `author:Ministry`).
     *   Buttons next to the search bar suggest available properties (`status:`, `author:`).
     *   When the cursor is after a colon (`:`), a suggestion popup appears with possible values for that property (e.g., "completed", "in progress" for `status:` or unique author names for `author:`).
 
-6.  **Light Mode Theme:**
+7.  **Light Mode Theme:**
     *   The application is configured to enforce a light mode theme for better readability.
 
 ## Important Files and Components:
@@ -41,14 +49,17 @@ The goal of this project is to create a web application that displays a list of 
 *   **`src/App.tsx`**: Main application component. Now manages global state (selected item, search query, suggestions, current page), filters items, and orchestrates other components. Includes navigation between Directives and Act Proposals, and a structured layout for side-by-side display of content and detail views.
 *   **`src/components/DirectiveList.tsx`**: Displays the list of directive cards.
 *   **`src/components/ActProposalsList.tsx`**: Displays the list of act proposal cards (newly added).
-*   **`src/components/DirectiveDetail.tsx`**: Displays the detailed view of a selected directive or act proposal. Now includes conditional rendering for directive-specific (roadmap, status) and act-proposal-specific (file link, signature count, mObywatel button) information.
+*   **`src/components/DirectiveDetail.tsx`**: Displays the detailed view of a selected directive or act proposal. Now includes conditional rendering for directive-specific (roadmap, status) and act-proposal-specific (file link, signature count, mObywatel button, notification button, and an integrated `DiscussionSection`) information.
 *   **`src/components/Roadmap.tsx`**: Renders the legislation process roadmap with clickable steps and expandable details, now conditionally displayed only for directives.
 *   **`src/components/SearchBar.tsx`**: The search input component, including property suggestion buttons and the dynamic suggestion popup.
-*   **`src/types.ts`**: Defines the `Directive` type, including `title`, `creationDate`, `status`, `description`, `currentStep`, `tags` (initially used for tag filter, now part of searchable fields), and `author`.
+*   **`src/components/Comment.tsx`**: A new component for displaying individual comments, including author, timestamp, content, vote buttons, and recursively rendering replies.
+*   **`src/components/DiscussionSection.tsx`**: A new component that manages the state of discussions, provides an input box for new comments/replies, and renders the tree-like view of comments.
+*   **`src/types.ts`**: Defines the `Directive` type, and now includes new `User` and `Comment` types for the discussion features.
 *   **`src/mockData.ts`**: Provides sample data for directives.
 *   **`src/mockActProposals.ts`**: Provides sample data for act proposals (newly added).
+*   **`src/mockDiscussions.ts`**: Provides mock data for the interactive discussion section (newly added).
 *   **`src/legislationSteps.ts`**: Defines the static steps of the Polish legislation process.
-*   **`src/App.css`**: Contains all styling for the application, including layout, cards, roadmap, search bar, suggestions, new styles for page navigation, act proposals, the mObywatel signing button, and main content container for proper side-by-side display (updated).
+*   **`src/App.css`**: Contains all styling for the application, including layout, cards, roadmap, search bar, suggestions, new styles for page navigation, act proposals, the mObywatel signing button, notification button, the discussion section components (input area, comments, replies), and main content container for proper side-by-side display (updated).
 *   **`src/index.css`**: Configures global styles and ensures light mode is enforced.
 
 ## Future Considerations/Potential Improvements:

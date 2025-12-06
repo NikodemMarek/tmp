@@ -1,5 +1,6 @@
 import { Directive } from '../types';
 import { Roadmap } from './Roadmap';
+import { DiscussionSection } from './DiscussionSection'; // Import the new component
 
 type DirectiveDetailProps = {
   directive: Directive;
@@ -47,7 +48,12 @@ export const DirectiveDetail = ({ directive, onClose }: DirectiveDetailProps) =>
             Podpisz z mObywatel
           </button>
         )}
+        {/* New notification button */}
+        <button className="notification-button" onClick={() => alert('Zostaniesz powiadomiony o zmianach.')}>
+          Powiadom o zmianach
+        </button>
       </div>
+      {isActProposal && <DiscussionSection />} {/* Use the new DiscussionSection component */}
       {!isActProposal && directive.currentStep !== undefined && <Roadmap currentStep={directive.currentStep} stepDetails={directive.stepDetails} />}
     </div>
   );
