@@ -11,6 +11,7 @@ export const SearchBar = ({ searchQuery, onSearchChange }: SearchBarProps) => {
       value={searchQuery}
       onChange={(e) => onSearchChange(e.target.value)}
       className="search-bar"
+      aria-label="Szukaj projektów ustaw"
     />
   );
 };

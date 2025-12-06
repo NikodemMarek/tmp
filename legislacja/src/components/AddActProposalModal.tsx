@@ -33,8 +33,8 @@ export const AddActProposalModal: React.FC<AddActProposalModalProps> = ({
 
   return (
     <div className="modal-overlay">
-      <div className="modal-content">
-        <h2>Dodaj Nowy Projekt Ustawy</h2>
+      <div className="modal-content" role="dialog" aria-modal="true" aria-labelledby="add-act-proposal-modal-title">
+        <h2 id="add-act-proposal-modal-title">Dodaj Nowy Projekt Ustawy</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="title">Tytuł:</label>

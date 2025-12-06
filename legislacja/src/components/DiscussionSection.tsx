@@ -73,8 +73,8 @@ export const DiscussionSection: React.FC<DiscussionSectionProps> = ({ actProposa
   };
 
   return (
-    <div className="discussion-section-container">
-      <h3>Dyskusja Publiczna</h3>
+    <section className="discussion-section-container" aria-labelledby="discussion-heading">
+      <h3 id="discussion-heading">Dyskusja Publiczna</h3>
       <div className="comment-input-area">
         <textarea
           placeholder={replyingTo ? 'Odpowiedz na komentarz...' : 'Napisz nowy komentarz...'}
@@ -88,11 +88,11 @@ export const DiscussionSection: React.FC<DiscussionSectionProps> = ({ actProposa
           <button className="cancel-reply-button" onClick={() => setReplyingTo(null)}>Anuluj odpowiedź</button>
         )}
       </div>
-      <div className="comments-list">
+      <ul className="comments-list">
         {comments.map((comment) => (
           <Comment key={comment.id} comment={comment} onReply={setReplyingTo} onVote={handleVote} />
         ))}
-      </div>
-    </div>
+      </ul>
+    </section>
   );
 };

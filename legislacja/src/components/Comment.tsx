@@ -9,7 +9,7 @@ type CommentProps = {
 
 export const Comment: React.FC<CommentProps> = ({ comment, onReply, onVote }) => {
   return (
-    <div className="comment-item">
+    <article className="comment-item">
       <div className="comment-header">
         <span className="comment-author">{comment.author.name}</span>
         <span className="comment-timestamp">{new Date(comment.timestamp).toLocaleString()}</span>
@@ -25,12 +25,14 @@ export const Comment: React.FC<CommentProps> = ({ comment, onReply, onVote }) =>
         <button onClick={() => onReply(comment.id)}>Odpowiedz</button>
       </div>
       {comment.replies && comment.replies.length > 0 && (
-        <div className="comment-replies">
+        <ul className="comment-replies">
           {comment.replies.map((reply) => (
-            <Comment key={reply.id} comment={reply} onReply={onReply} onVote={onVote} />
+            <li key={reply.id}>
+              <Comment key={reply.id} comment={reply} onReply={onReply} onVote={onVote} />
+            </li>
           ))}
-        </div>
+        </ul>
       )}
-    </div>
+    </article>
   );
 };

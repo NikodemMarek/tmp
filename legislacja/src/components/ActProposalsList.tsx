@@ -7,9 +7,9 @@ type ActProposalsListProps = {
 
 export const ActProposalsList = ({ actProposals, onSelectActProposal }: ActProposalsListProps) => {
   return (
-    <div className="act-proposals-list">
+    <ul className="act-proposals-list">
       {actProposals.map((actProposal) => (
-        <div className="act-proposal-card card" key={actProposal.id}>
+        <li className="act-proposal-card card" key={actProposal.id}>
           <div className="card-header">
             <h2>{actProposal.title}</h2>
             {actProposal.signaturesCollected !== undefined && (
@@ -21,8 +21,8 @@ export const ActProposalsList = ({ actProposals, onSelectActProposal }: ActPropo
           <p>{actProposal.description}</p>
           <p className="date">{actProposal.creationDate}</p>
           <button onClick={() => onSelectActProposal(actProposal)}>Pokaż</button>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };

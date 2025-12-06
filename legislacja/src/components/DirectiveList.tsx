@@ -7,9 +7,9 @@ type DirectiveListProps = {
 
 export const DirectiveList = ({ directives, onSelectDirective }: DirectiveListProps) => {
   return (
-    <div className="directive-list">
+    <ul className="directive-list">
       {directives.map((directive) => (
-        <div className="directive-card card" key={directive.id}>
+        <li className="directive-card card" key={directive.id}>
           <div className="card-header">
             <h2>{directive.title}</h2>
             <span className={`status status-${directive.status.replace(' ', '-')}`}>
@@ -19,8 +19,8 @@ export const DirectiveList = ({ directives, onSelectDirective }: DirectiveListPr
           <p>{directive.description}</p>
           <p className="date">{directive.creationDate}</p>
           <button onClick={() => onSelectDirective(directive)}>Pokaż</button>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };

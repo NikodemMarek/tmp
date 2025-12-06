@@ -11,7 +11,7 @@ export const DirectiveDetail = ({ directive, onClose }: DirectiveDetailProps) =>
   const isActProposal = directive.fileLink !== undefined || directive.signaturesCollected !== undefined;
 
   return (
-    <div className="card directive-detail-card">
+    <article className="card directive-detail-card">
       <div className="card-header">
         <h2>{directive.title}</h2>
         <button onClick={onClose} className="close-button">Zamknij</button>
@@ -28,11 +28,13 @@ export const DirectiveDetail = ({ directive, onClose }: DirectiveDetailProps) =>
         {directive.tags && directive.tags.length > 0 && (
           <p>
             <strong>Tagi:</strong>{' '}
-            {directive.tags.map((tag) => (
-              <span key={tag} className="tag-item">
-                {tag}
-              </span>
-            ))}
+            <ul className="tag-list">
+              {directive.tags.map((tag) => (
+                <li key={tag} className="tag-item">
+                  {tag}
+                </li>
+              ))}
+            </ul>
           </p>
         )}
         {isActProposal && directive.fileLink && (
@@ -55,6 +57,6 @@ export const DirectiveDetail = ({ directive, onClose }: DirectiveDetailProps) =>
       </div>
       {isActProposal && <DiscussionSection />} {/* Use the new DiscussionSection component */}
       {!isActProposal && directive.currentStep !== undefined && <Roadmap currentStep={directive.currentStep} stepDetails={directive.stepDetails} />}
-    </div>
+    </article>
   );
 };

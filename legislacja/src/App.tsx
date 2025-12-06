@@ -58,7 +58,8 @@ function App() {
 
   return (
     <div className="app-container">
-      <div className="header">
+      <header className="header">
+        <nav>
         <button
           className={currentPage === 'directives' ? 'active' : ''}
           onClick={() => {
@@ -82,9 +83,10 @@ function App() {
         <button className="add-act-proposal-button" onClick={() => setIsAddModalOpen(true)}>
           Dodaj Propozycję Ustawy
         </button>
-      </div>
+        </nav>
+      </header>
 
-      <div className="main-content-container">
+      <main className="main-content-container">
         <div className={`list-container ${selectedDirective ? 'list-view-open' : ''}`}>
           <h1>{currentPage === 'directives' ? 'Ustawy' : 'Propozycje ustaw'}</h1>
           <SearchBar searchQuery={searchQuery} onSearchChange={handleSearchChange} />
@@ -99,7 +101,7 @@ function App() {
             <DirectiveDetail directive={selectedDirective} onClose={() => setSelectedDirective(null)} />
           </div>
         )}
-      </div>
+      </main>
 
       {isAddModalOpen && (
         <AddActProposalModal

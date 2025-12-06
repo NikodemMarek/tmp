@@ -15,8 +15,9 @@ export const Roadmap = ({ currentStep, stepDetails }: RoadmapProps) => {
   };
 
   return (
-    <div className="roadmap">
-      <h3>Harmonogram Legislacyjny</h3>
+    <section className="roadmap" aria-labelledby="roadmap-heading">
+      <h3 id="roadmap-heading">Harmonogram Legislacyjny</h3>
+      <ul>
       {legislationSteps.map((step, index) => {
         const detail = stepDetails?.[index];
         const isCompleted = index < currentStep;
@@ -30,7 +31,7 @@ export const Roadmap = ({ currentStep, stepDetails }: RoadmapProps) => {
         }
 
         return (
-          <div key={step.name} className="roadmap-step-container">
+          <li key={step.name} className="roadmap-step-container">
             <button className="roadmap-button" onClick={() => handleStepClick(index)}>
               <div className={`roadmap-dot ${dotClassName}`} />
               <div className="roadmap-label">{step.name}</div>
@@ -58,9 +59,10 @@ export const Roadmap = ({ currentStep, stepDetails }: RoadmapProps) => {
                 <p>Brak szczegółów dla tego kroku.</p>
               </div>
             )}
-          </div>
+          </li>
         );
       })}
-    </div>
+      </ul>
+    </section>
   );
 };
