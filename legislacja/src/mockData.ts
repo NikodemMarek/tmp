@@ -2,7 +2,7 @@ import { Directive } from './types';
 import { legislationSteps } from './legislationSteps';
 
 const generateStepDetails = (currentStepIndex: number, creationDateStr: string) => {
-  let currentDate = new Date(creationDateStr);
+  const currentDate = new Date(creationDateStr);
   const details = [];
 
   for (let i = 0; i < legislationSteps.length; i++) {
@@ -26,10 +26,21 @@ const generateStepDetails = (currentStepIndex: number, creationDateStr: string) 
       status = 'do zrobienia';
     }
 
+    const fileLinks = [];
+    if (i % 3 === 0) { // Every third step has two links
+      fileLinks.push(
+        { name: `Dokumentacja Etapu ${i + 1} (A)`, url: `https://example.com/step-${i + 1}-doc-a.pdf` },
+        { name: `Raport Techniczny Etapu ${i + 1} (B)`, url: `https://example.com/step-${i + 1}-doc-b.pdf` }
+      );
+    } else if (i % 2 === 0) { // Every second step has one link
+      fileLinks.push({ name: `Główny Dokument Etapu ${i + 1}`, url: `https://example.com/step-${i + 1}-main-doc.pdf` });
+    }
+
     details.push({
       description: stepDescription,
       previousDescription: previousDescription,
       status: status,
+      fileLinks: fileLinks.length > 0 ? fileLinks : undefined, // Assign generated file links
     });
   }
   return details;
@@ -60,7 +71,7 @@ export const directives: Directive[] = [
     id: 'd3',
     title: 'Projekt ustawy o przeciwdziałaniu wykorzystywaniu sektora finansowego do prania pieniędzy oraz finansowania terroryzmu (AML)',
     creationDate: '2024-03-10',
-    status: 'anulowano',
+    status: 'odrzucono',
     description: 'Projekt ustawy AML, mający na celu dalsze uszczelnienie systemu przeciwdziałania praniu pieniędzy i finansowaniu terroryzmu, został wycofany z dalszych prac legislacyjnych. Powodem były liczne kontrowersje dotyczące zakresu obowiązków nakładanych na niektóre podmioty (np. dostawców usług wirtualnych aktywów) oraz obawy o nadmierną biurokratyzację. Zdecydowano o ponownym przemyśleniu strategii i przygotowaniu nowego, bardziej wyważonego projektu w przyszłości.',
     currentStep: 1, // Cancelled early, so 'Pierwsze czytanie'
     tags: ['finanse', 'bezpieczeństwo', 'AML', 'prawo'],

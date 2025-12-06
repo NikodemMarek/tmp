@@ -58,7 +58,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <header>
+      <header className="app-header">
         <nav className="header">
         <button
           className={currentPage === 'directives' ? 'active' : ''}
@@ -84,12 +84,12 @@ function App() {
           Dodaj Propozycję Ustawy
         </button>
         </nav>
+
+        <SearchBar searchQuery={searchQuery} onSearchChange={handleSearchChange} />
       </header>
 
       <main className="main-content-container">
         <div className={`list-container ${selectedDirective ? 'list-view-open' : ''}`}>
-          <h1>{currentPage === 'directives' ? 'Ustawy' : 'Propozycje ustaw'}</h1>
-          <SearchBar searchQuery={searchQuery} onSearchChange={handleSearchChange} />
           {currentPage === 'directives' ? (
             <DirectiveList directives={filteredItems} onSelectDirective={handleSelectDirective} />
           ) : (

@@ -12,14 +12,16 @@ export const ActProposalsList = ({ actProposals, onSelectActProposal }: ActPropo
         <li className="act-proposal-card card" key={actProposal.id}>
           <div className="card-header">
             <h2>{actProposal.title}</h2>
-            {actProposal.signaturesCollected !== undefined && (
-              <span className="signatures-collected">
-                {actProposal.signaturesCollected.toLocaleString()}/100,000
-              </span>
-            )}
+            <div className="date-and-signatures">
+              <p className="date">{actProposal.creationDate}</p>
+              {actProposal.signaturesCollected !== undefined && (
+                <span className="signatures-collected">
+                  {actProposal.signaturesCollected.toLocaleString()}/100,000
+                </span>
+              )}
+            </div>
           </div>
           <p>{actProposal.description}</p>
-          <p className="date">{actProposal.creationDate}</p>
           <button onClick={() => onSelectActProposal(actProposal)}>Pokaż</button>
         </li>
       ))}

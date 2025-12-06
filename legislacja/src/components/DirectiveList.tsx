@@ -11,13 +11,15 @@ export const DirectiveList = ({ directives, onSelectDirective }: DirectiveListPr
       {directives.map((directive) => (
         <li className="directive-card card" key={directive.id}>
           <div className="card-header">
-            <h2>{directive.title}</h2>
-            <span className={`status status-${directive.status.replace(' ', '-')}`}>
-              {directive.status}
-            </span>
+            <div className="date-and-status">
+              <p className="date">{directive.creationDate}</p>
+              <span className={`status status-${directive.status.replace(' ', '-')}`}>
+                {directive.status}
+              </span>
+            </div>
           </div>
+          <h2>{directive.title}</h2>
           <p>{directive.description}</p>
-          <p className="date">{directive.creationDate}</p>
           <button onClick={() => onSelectDirective(directive)}>Pokaż</button>
         </li>
       ))}

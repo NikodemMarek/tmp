@@ -19,10 +19,29 @@
   gap: 2rem;
 }
 
+.app-header {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  gap: 1rem; /* Space between items */
+
+}
+
 .header {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0; /* Remove previous margin */
+  align-items: center; /* Align nav items vertically */
+}
+
+.app-header h1 {
+  margin: 0; /* Remove default h1 margin */
+  font-size: 1.8rem; /* Adjust as needed */
+  color: var(--md-sys-color-on-surface);
+}
+
+.app-header .search-bar {
+  margin-bottom: 0; /* Remove previous margin */
+  width: 100%; /* Ensure it takes full width */
 }
 
 .header button {
@@ -175,11 +194,11 @@ dialog.modal-overlay::backdrop {
 
 .directive-list-container.list-view-open,
 .list-container.list-view-open {
-  width: 50%;
+  width: 30%;
 }
 
 .directive-detail-container {
-  width: 50%;
+  width: 70%;
 }
 
 .directive-list,
@@ -187,11 +206,12 @@ dialog.modal-overlay::backdrop {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-top: 0;
 }
 
-.directive-card {
-  cursor: pointer;
-}
+/* .directive-card { */
+/*   cursor: pointer; */
+/* } */
 
 .directive-card:hover,
 .act-proposal-card:hover {
@@ -210,9 +230,28 @@ dialog.modal-overlay::backdrop {
   margin-bottom: 0.75rem;
 }
 
+.date-and-status {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.card-header .date-and-status,
+.card-header .date-and-signatures {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between date and status/signatures */
+}
+
+/* Style for the date paragraph within these new divs */
+.card-header .date-and-status .date,
+.card-header .date-and-signatures .date {
+  margin: 0; /* Remove default paragraph margin */
+  font-size: 0.85rem; /* Keep existing date font size */
+  color: var(--md-sys-color-on-surface-variant); /* Keep existing date color */
+}
+
 .card-header h2 {
   margin: 0;
-  font-size: 1.25rem;
   color: var(--md-sys-color-on-surface);
 }
 
@@ -233,7 +272,7 @@ dialog.modal-overlay::backdrop {
   background-color: var(--md-sys-color-tertiary);
 }
 
-.status-anulowano {
+.status-odrzucono {
   background-color: var(--md-sys-color-error);
 }
 
@@ -248,18 +287,18 @@ dialog.modal-overlay::backdrop {
 .mobywatel-button {
   background-color: black;
   color: white;
-  border: none;
+  border: 1px solid black;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
-  margin-top: 1rem;
+  margin-top: 1.25rem;
   transition: background-color 0.25s, border-color 0.25s, color 0.25s;
 }
 
 .mobywatel-button:hover {
   background-color: #333;
-  border-color: transparent;
+  /* border-color: transparent; */
   color: white;
 }
 
@@ -271,8 +310,7 @@ dialog.modal-overlay::backdrop {
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
-  margin-top: 1rem;
-  margin-left: 1rem;
+  margin-top: 1.25rem;
   transition: background-color 0.25s, border-color 0.25s, color 0.25s;
 }
 
@@ -283,7 +321,7 @@ dialog.modal-overlay::backdrop {
 }
 
 .public-discussion-section {
-  margin-top: 2rem;
+  margin-top: 1.25rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--md-sys-color-outline);
 }
@@ -299,7 +337,7 @@ dialog.modal-overlay::backdrop {
 }
 
 .discussion-section-container {
-  margin-top: 2rem;
+  margin-top: 1.25rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--md-sys-color-outline);
 }
@@ -389,6 +427,7 @@ dialog.modal-overlay::backdrop {
 .comment-content {
   margin-bottom: 0.8rem;
   color: var(--md-sys-color-on-surface);
+  font-size: 1.15rem; /* Increased font size */
 }
 
 .comment-actions button {
@@ -425,7 +464,7 @@ dialog.modal-overlay::backdrop {
 }
 
 .directive-detail-card {
-  padding: 1.5rem;
+  padding: 1.25rem;
 }
 
 .directive-properties {
@@ -436,10 +475,12 @@ dialog.modal-overlay::backdrop {
 .directive-properties p {
   margin-bottom: 0.4rem;
   color: var(--md-sys-color-on-surface);
+  font-size: 1.15rem; /* Increased font size */
 }
 
 .directive-properties strong {
   color: var(--md-sys-color-on-surface);
+  font-size: 1.15rem; /* Increased font size */
 }
 
 .tag-item {
@@ -501,9 +542,13 @@ dialog.modal-overlay::backdrop {
   transition: color 0.2s ease-in-out;
 }
 
-.roadmap-button:hover .roadmap-label {
-  color: var(--md-sys-color-primary);
+button.roadmap-button:hover {
+  background-color: initial;
 }
+
+/* .roadmap-button:hover .roadmap-label { */
+/*   color: var(--md-sys-color-primary); */
+/* } */
 
 .roadmap-dot {
   width: 18px;
@@ -524,6 +569,11 @@ dialog.modal-overlay::backdrop {
 .roadmap-dot.completed {
   background-color: var(--md-sys-color-secondary);
   border-color: var(--md-sys-color-secondary);
+}
+
+button.roadmap-button:hover .roadmap-dot {
+  background-color: black;
+  border-color: black;
 }
 
 .roadmap-label {
@@ -579,7 +629,7 @@ dialog.modal-overlay::backdrop {
 }
 
 .description-text {
-  font-size: 1rem;
+  font-size: 1.15rem; /* Increased font size */
   line-height: 1.5;
   color: var(--md-sys-color-on-surface);
 }
@@ -601,6 +651,11 @@ dialog.modal-overlay::backdrop {
   border-color: var(--md-sys-color-primary);
   box-shadow: 0 0 0 0.2rem hsla(var(--md-sys-color-primary), 0.25);
   outline: none;
+}
+
+.tag-list {
+  display: inline-block;
+  margin: 0;
 }
 
 .tag-filter {
@@ -641,4 +696,8 @@ dialog.modal-overlay::backdrop {
 main ul {
   list-style-type: none;
   padding-left: 0;
+}
+
+#roadmap-heading {
+  margin: 0;
 }

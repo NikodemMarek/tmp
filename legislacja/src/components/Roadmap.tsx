@@ -39,7 +39,7 @@ export const Roadmap = ({ currentStep, stepDetails }: RoadmapProps) => {
             {selectedStep === index && detail && (
               <div className="roadmap-details">
                 <p><strong>Status:</strong> {detail.status}</p>
-                {detail.previousDescription && (
+                {detail.previousDescription ? (
                   <>
                     <p className="description-text"><strong>Zmiany w Opisie:</strong></p>
                     <p className="description-text diff-view">
@@ -48,9 +48,22 @@ export const Roadmap = ({ currentStep, stepDetails }: RoadmapProps) => {
                       <span className="diff-added">Aktualny Opis: {detail.description}</span>
                     </p>
                   </>
-                )}
-                {!detail.previousDescription && (
+                ) : (
                   <p className="description-text">{detail.description}</p>
+                )}
+                {detail.fileLinks && detail.fileLinks.length > 0 && (
+                  <div className="description-text">
+                    <strong>Dokumenty:</strong>
+                    <ul style={{ listStyleType: 'none', paddingLeft: '0', marginTop: '0.5rem' }}>
+                      {detail.fileLinks.map((link, linkIndex) => (
+                        <li key={linkIndex} style={{ marginBottom: '0.2rem' }}>
+                          <a href={link.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'var(--md-sys-color-primary)' }}>
+                            📎 {link.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 )}
               </div>
             )}

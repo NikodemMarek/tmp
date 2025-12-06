@@ -2,7 +2,7 @@ export type Directive = {
   id: string; // Add a unique ID for each directive
   title: string;
   creationDate: string;
-  status: 'w toku' | 'ukończono' | 'anulowano';
+  status: 'w toku' | 'ukończono' | 'odrzucono';
   description: string;
   currentStep: number;
   tags: string[];
@@ -12,6 +12,7 @@ export type Directive = {
     description: string;
     previousDescription?: string; // Added for diffing
     status: 'ukończono' | 'w toku' | 'do zrobienia';
+    fileLinks?: { name: string; url: string }[]; // Changed to array of objects for multiple links
   }[];
 };
 
