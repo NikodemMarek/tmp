@@ -14,7 +14,7 @@ export const ActProposalsList = ({ actProposals, onSelectActProposal }: ActPropo
             <h2>{actProposal.title}</h2>
             {actProposal.signaturesCollected !== undefined && (
               <span className="signatures-collected">
-                Zebrane podpisy: {actProposal.signaturesCollected.toLocaleString()}/100,000
+                {actProposal.signaturesCollected.toLocaleString()}/100,000
               </span>
             )}
           </div>

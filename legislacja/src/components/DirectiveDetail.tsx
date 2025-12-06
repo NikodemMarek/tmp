@@ -48,7 +48,7 @@ export const DirectiveDetail = ({ directive, onClose }: DirectiveDetailProps) =>
         {isActProposal && (
           <button className="mobywatel-button"  style={{ marginRight: '1rem' }}
             onClick={() => alert('Przekierowanie do mObywatel w celu podpisania projektu.')}>
-            Podpisz z mObywatel
+            Podpisz mObywatelem
           </button>
         )}
         {/* New notification button */}
