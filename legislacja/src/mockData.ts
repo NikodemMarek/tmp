@@ -6,19 +6,22 @@ const generateStepDetails = (currentStep: number, creationDate: string) => {
     if (index < currentStep) {
       const stepDate = new Date(creationDate);
       stepDate.setDate(stepDate.getDate() + (index + 1) * 5); // Arbitrary date progression
+      const currentDesc = `Zakończono: ${step} w dniu ${stepDate.toISOString().split('T')[0]}. Wszystkie niezbędne dokumenty zostały złożone i zatwierdzone.`;
+      const prevDesc = `Stan początkowy: ${step} został rozpoczęty. Zarysowano podstawowe wymagania.`;
       return {
-        description: `Completed: ${step} on ${stepDate.toISOString().split('T')[0]}. All necessary documents have been submitted and approved.`,
-        status: 'completed',
+        description: currentDesc,
+        previousDescription: prevDesc,
+        status: 'ukończono',
       };
     } else if (index === currentStep) {
       return {
-        description: `Currently in progress: ${step}. Awaiting feedback from relevant committees/stakeholders.`,
-        status: 'in progress',
+        description: `Obecnie w toku: ${step}. Oczekuje na opinie odpowiednich komisji/interesariuszy.`,
+        status: 'w toku',
       };
     } else {
       return {
-        description: `Planned: ${step}. Preparations are underway for the upcoming phase.`,
-        status: 'to do',
+        description: `Planowane: ${step}. Trwają przygotowania do nadchodzącej fazy.`,
+        status: 'do zrobienia',
       };
     }
   });
@@ -26,39 +29,39 @@ const generateStepDetails = (currentStep: number, creationDate: string) => {
 
 export const directives: Directive[] = [
   {
-    title: 'Directive 2024/01',
+    title: 'Ustawa 2024/01',
     creationDate: '2024-01-15',
-    status: 'completed',
-    description: 'This directive is about the standards for water quality. It has successfully passed through all legislative stages.',
+    status: 'ukończono',
+    description: 'Ta dyrektywa dotyczy standardów jakości wody. Pomyślnie przeszła przez wszystkie etapy legislacyjne.',
     currentStep: 7,
-    tags: ['environment', 'water', 'health'],
+    tags: ['środowisko', 'woda', 'zdrowie'],
     stepDetails: generateStepDetails(7, '2024-01-15'),
   },
   {
-    title: 'Directive 2024/02',
+    title: 'Projekt ustawy',
     creationDate: '2024-02-20',
-    status: 'in progress',
-    description: 'This directive is about the use of renewable energy. It is currently in the committee phase.',
+    status: 'w toku',
+    description: 'Ta dyrektywa dotyczy wykorzystania odnawialnych źródeł energii. Obecnie znajduje się w fazie komisji.',
     currentStep: 3,
-    tags: ['energy', 'renewable', 'environment'],
+    tags: ['energia', 'odnawialne', 'środowisko'],
     stepDetails: generateStepDetails(3, '2024-02-20'),
   },
   {
-    title: 'Directive 2024/03',
+    title: 'Projetk ustawy',
     creationDate: '2024-03-10',
-    status: 'cancelled',
-    description: 'This directive was about waste management, but has been cancelled due to new policy priorities.',
+    status: 'anulowano',
+    description: 'Ta dyrektywa dotyczyła gospodarki odpadami, ale została anulowana z powodu nowych priorytetów polityki.',
     currentStep: 1, // Cancelled early
-    tags: ['waste', 'environment'],
+    tags: ['odpady', 'środowisko'],
     stepDetails: generateStepDetails(1, '2024-03-10'),
   },
   {
-    title: 'Directive 2023/12',
+    title: 'Ustawa 2023/12',
     creationDate: '2023-12-01',
-    status: 'completed',
-    description: 'This directive is about the reduction of plastic waste. It has been fully implemented.',
+    status: 'ukończono',
+    description: 'Ta dyrektywa dotyczy redukcji odpadów plastikowych. Została w pełni wdrożona.',
     currentStep: 7,
-    tags: ['environment', 'plastic', 'waste'],
+    tags: ['środowisko', 'plastik', 'odpady'],
     stepDetails: generateStepDetails(7, '2023-12-01'),
   },
 ];

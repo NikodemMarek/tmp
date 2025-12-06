@@ -40,7 +40,7 @@ function App() {
   return (
     <div className="app-container">
       <div className={`directive-list-container ${selectedDirective ? 'list-view-open' : ''}`}>
-        <h1>Directives</h1>
+        <h1>Dyrektywy</h1>
         <SearchBar searchQuery={searchQuery} onSearchChange={handleSearchChange} />
         <TagFilter directives={directives} selectedTags={selectedTags} onTagToggle={handleTagToggle} />
         <DirectiveList directives={filteredDirectives} onSelectDirective={handleSelectDirective} />
