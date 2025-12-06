@@ -67,7 +67,7 @@ function App() {
             setSearchQuery('');
           }}
         >
-          Dyrektywy
+          Ustawy
         </button>
         <button
           className={currentPage === 'actProposals' ? 'active' : ''}
@@ -80,13 +80,13 @@ function App() {
           Propozycje ustaw
         </button>
         <button className="add-act-proposal-button" onClick={() => setIsAddModalOpen(true)}>
-          Dodaj Projekt Ustawy
+          Dodaj Propozycję Ustawy
         </button>
       </div>
 
       <div className="main-content-container">
         <div className={`list-container ${selectedDirective ? 'list-view-open' : ''}`}>
-          <h1>{currentPage === 'directives' ? 'Dyrektywy' : 'Propozycje ustaw'}</h1>
+          <h1>{currentPage === 'directives' ? 'Ustawy' : 'Propozycje ustaw'}</h1>
           <SearchBar searchQuery={searchQuery} onSearchChange={handleSearchChange} />
           {currentPage === 'directives' ? (
             <DirectiveList directives={filteredItems} onSelectDirective={handleSelectDirective} />

@@ -3,7 +3,7 @@
   border: 1px solid var(--md-sys-color-outline);
   border-radius: 0.75rem;
   padding: 1.25rem;
-  box-shadow: 0 4px 8px rgba(28, 27, 31, 0.05);
+  box-shadow: 0 4px 8px hsla(var(--md-sys-color-on-background), 0.05);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
@@ -13,11 +13,6 @@
   padding: 2rem 1rem; /* Adjusted padding for better responsiveness */
 }
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-}
 
 .app-container {
   display: flex;
@@ -47,7 +42,7 @@
 }
 
 .add-act-proposal-button {
-  background-color: #28a745; /* Green color for add button */
+  background-color: var(--md-sys-color-primary); /* Green color for add button */
   color: white;
   border: none;
   padding: 10px 15px;
@@ -58,7 +53,7 @@
 }
 
 .add-act-proposal-button:hover {
-  background-color: #218838;
+  background-color: var(--md-sys-color-primary-container);
 }
 
 .modal-overlay {
@@ -67,7 +62,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: hsla(var(--md-sys-color-on-background), 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,10 +70,10 @@
 }
 
 .modal-content {
-  background-color: white;
+  background-color: var(--md-sys-color-surface);
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px hsla(var(--md-sys-color-on-background), 0.2);
   width: 90%;
   max-width: 500px;
   position: relative;
@@ -87,7 +82,7 @@
 .modal-content h2 {
   margin-top: 0;
   margin-bottom: 1.5rem;
-  color: #333;
+  color: var(--md-sys-color-on-surface);
 }
 
 .form-group {
@@ -98,7 +93,7 @@
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
-  color: #555;
+  color: var(--md-sys-color-on-surface-variant);
 }
 
 .form-group input[type="text"],
@@ -107,7 +102,7 @@
 .form-group textarea {
   width: 100%;
   padding: 0.8em;
-  border: 1px solid #ddd;
+  border: 1px solid var(--md-sys-color-outline);
   border-radius: 5px;
   box-sizing: border-box;
 }
@@ -133,21 +128,21 @@
 }
 
 .modal-actions button[type="submit"] {
-  background-color: #007bff;
+  background-color: var(--md-sys-color-primary);
   color: white;
 }
 
 .modal-actions button[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: var(--md-sys-color-primary-container);
 }
 
 .modal-actions button[type="button"] {
-  background-color: #6c757d;
+  background-color: var(--md-sys-color-outline);
   color: white;
 }
 
 .modal-actions button[type="button"]:hover {
-  background-color: #5a6268;
+  background-color: var(--md-sys-color-on-surface-variant);
 }
 
 .main-content-container {
@@ -181,7 +176,7 @@
 
 .directive-card:hover, .act-proposal-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(28, 27, 31, 0.1);
+  box-shadow: 0 6px 12px hsla(var(--md-sys-color-on-background), 0.1);
 }
 
 .act-proposal-card {
@@ -241,11 +236,11 @@
 }
 
 .mobywatel-button:hover {
-  background-color: #00BFA5;
+  background-color: var(--md-sys-color-secondary-container);
 }
 
 .notification-button {
-  background-color: #6c757d; /* A neutral gray */
+  background-color: var(--md-sys-color-outline); /* A neutral gray */
   color: white;
   border: none;
   padding: 10px 15px;
@@ -258,7 +253,7 @@
 
 .notification-button:hover {
 
-  background-color: #5a6268;
+  background-color: var(--md-sys-color-on-surface-variant);
 
 }
 
@@ -270,7 +265,7 @@
 
   padding-top: 1.5rem;
 
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--md-sys-color-outline);
 
 }
 
@@ -278,9 +273,15 @@
 
 .public-discussion-section h3 {
 
+
+
   margin-bottom: 1rem;
 
-  color: #333;
+
+
+  color: var(--md-sys-color-on-surface);
+
+
 
 }
 
@@ -290,11 +291,23 @@
 
 
 
+
+
+
+
   margin-bottom: 0.5rem;
 
 
 
-  color: #555;
+
+
+
+
+  color: var(--md-sys-color-on-surface-variant);
+
+
+
+
 
 
 
@@ -310,7 +323,31 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
   margin-top: 2rem;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -318,7 +355,31 @@
 
 
 
-  border-top: 1px solid #eee;
+
+
+
+
+
+
+
+
+
+
+
+
+  border-top: 1px solid var(--md-sys-color-outline);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -334,11 +395,23 @@
 
 
 
+
+
+
+
   margin-bottom: 1rem;
 
 
 
-  color: #333;
+
+
+
+
+  color: var(--md-sys-color-on-surface);
+
+
+
+
 
 
 
@@ -382,11 +455,23 @@
 
 
 
+
+
+
+
   padding: 0.8em;
 
 
 
-  border: 1px solid #ddd;
+
+
+
+
+  border: 1px solid var(--md-sys-color-outline);
+
+
+
+
 
 
 
@@ -394,11 +479,23 @@
 
 
 
+
+
+
+
   min-height: 80px;
 
 
 
+
+
+
+
   resize: vertical;
+
+
+
+
 
 
 
@@ -414,7 +511,15 @@
 
 
 
+
+
+
+
   align-self: flex-start;
+
+
+
+
 
 
 
@@ -422,7 +527,15 @@
 
 
 
+
+
+
+
   border: none;
+
+
+
+
 
 
 
@@ -430,7 +543,15 @@
 
 
 
-  background-color: #007bff;
+
+
+
+
+  background-color: var(--md-sys-color-primary);
+
+
+
+
 
 
 
@@ -438,7 +559,15 @@
 
 
 
+
+
+
+
   cursor: pointer;
+
+
+
+
 
 
 
@@ -454,7 +583,15 @@
 
 
 
-  background-color: #0056b3;
+
+
+
+
+  background-color: var(--md-sys-color-primary-container);
+
+
+
+
 
 
 
@@ -470,11 +607,23 @@
 
 
 
-  background-color: #6c757d !important;
+
+
+
+
+  background-color: var(--md-sys-color-outline) !important;
+
+
+
+
 
 
 
   margin-left: 0.5rem;
+
+
+
+
 
 
 
@@ -490,7 +639,15 @@
 
 
 
-  background-color: #5a6268 !important;
+
+
+
+
+  background-color: var(--md-sys-color-on-surface-variant) !important;
+
+
+
+
 
 
 
@@ -530,11 +687,23 @@
 
 
 
-  background-color: #f9f9f9;
 
 
 
-  border: 1px solid #eee;
+
+  background-color: var(--md-sys-color-surface-variant);
+
+
+
+
+
+
+
+  border: 1px solid var(--md-sys-color-outline);
+
+
+
+
 
 
 
@@ -542,7 +711,15 @@
 
 
 
+
+
+
+
   padding: 1rem;
+
+
+
+
 
 
 
@@ -582,11 +759,23 @@
 
 
 
+
+
+
+
   font-weight: bold;
 
 
 
-  color: #333;
+
+
+
+
+  color: var(--md-sys-color-on-surface);
+
+
+
+
 
 
 
@@ -602,11 +791,23 @@
 
 
 
+
+
+
+
   font-size: 0.8em;
 
 
 
-  color: #888;
+
+
+
+
+  color: var(--md-sys-color-on-surface-variant);
+
+
+
+
 
 
 
@@ -622,11 +823,23 @@
 
 
 
+
+
+
+
   margin-bottom: 0.8rem;
 
 
 
-  color: #444;
+
+
+
+
+  color: var(--md-sys-color-on-surface);
+
+
+
+
 
 
 
@@ -642,7 +855,15 @@
 
 
 
+
+
+
+
   background: none;
+
+
+
+
 
 
 
@@ -650,7 +871,15 @@
 
 
 
-  color: #007bff;
+
+
+
+
+  color: var(--md-sys-color-primary);
+
+
+
+
 
 
 
@@ -658,11 +887,23 @@
 
 
 
+
+
+
+
   padding: 0 0.5rem 0 0;
 
 
 
+
+
+
+
   font-size: 0.9em;
+
+
+
+
 
 
 
@@ -694,7 +935,15 @@
 
 
 
+
+
+
+
   margin-left: 1.5rem;
+
+
+
+
 
 
 
@@ -702,11 +951,23 @@
 
 
 
+
+
+
+
   padding-left: 1rem;
 
 
 
-  border-left: 2px solid #eee;
+
+
+
+
+  border-left: 2px solid var(--md-sys-color-outline);
+
+
+
+
 
 
 
@@ -714,11 +975,23 @@
 
 
 
+
+
+
+
   flex-direction: column;
 
 
 
+
+
+
+
   gap: 0.75rem;
+
+
+
+
 
 
 
@@ -776,7 +1049,7 @@
 }
 
 .close-button:hover {
-  background-color: #8C001A; /* Darker red on hover, derived from MD error */
+  background-color: var(--md-sys-color-error-container); /* Darker red on hover, derived from MD error */
 }
 
 .roadmap {
@@ -911,7 +1184,7 @@
 
 .search-bar:focus {
   border-color: var(--md-sys-color-primary);
-  box-shadow: 0 0 0 0.2rem rgba(63, 81, 181, 0.25); /* Manually converted --md-sys-color-primary to rgba */
+  box-shadow: 0 0 0 0.2rem hsla(var(--md-sys-color-primary), 0.25); /* Manually converted --md-sys-color-primary to rgba */
   outline: none;
 }
 
