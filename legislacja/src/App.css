@@ -80,6 +80,29 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.directive-properties {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.directive-properties p {
+  margin-bottom: 0.5rem;
+}
+
+.directive-properties strong {
+  color: #333;
+}
+
+.tag-item {
+  display: inline-block;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  padding: 3px 8px;
+  margin-right: 5px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
 .close-button {
   background-color: #f44336;
   color: white;
@@ -149,6 +172,17 @@
   padding: 1rem;
   border-left: 2px solid #eee;
   margin-top: 0.5rem;
+  background-color: #f9f9f9;
+  border-radius: 0 0 5px 5px;
+}
+
+.roadmap-details p {
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.roadmap-details p:last-child {
+  margin-bottom: 0;
 }
 
 .search-bar {

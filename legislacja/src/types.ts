@@ -5,4 +5,8 @@ export type Directive = {
   description: string;
   currentStep: number;
   tags: string[];
+  stepDetails?: {
+    description: string;
+    status: 'completed' | 'in progress' | 'to do';
+  }[];
 };
