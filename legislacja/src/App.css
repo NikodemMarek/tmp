@@ -16,6 +16,7 @@
 .app-container {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   gap: 2rem;
 }
 
@@ -205,6 +206,10 @@ dialog.modal-overlay::backdrop {
   gap: 2rem;
 }
 
+.info-page {
+  min-width: 1280px;
+}
+
 .list-container {
   width: 100%;
   transition: width 0.3s ease-in-out;
@@ -243,11 +248,13 @@ dialog.modal-overlay::backdrop {
 
 .card-header {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.75rem;
 }
 
+.date-and-signatures,
 .date-and-status {
   width: 100%;
   justify-content: space-between;
@@ -274,7 +281,7 @@ dialog.modal-overlay::backdrop {
 }
 
 .status {
-  padding: 0.3em 0.7em;
+  padding: 5px 10px;
   border-radius: 0.35rem;
   color: var(--md-sys-color-on-secondary);
   font-weight: 600;

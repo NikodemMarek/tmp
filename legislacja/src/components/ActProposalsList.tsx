@@ -11,7 +11,6 @@ export const ActProposalsList = ({ actProposals, onSelectActProposal }: ActPropo
       {actProposals.map((actProposal) => (
         <li className="act-proposal-card card" key={actProposal.id}>
           <div className="card-header">
-            <h2>{actProposal.title}</h2>
             <div className="date-and-signatures">
               <p className="date">{actProposal.creationDate}</p>
               {actProposal.signaturesCollected !== undefined && (
@@ -21,6 +20,7 @@ export const ActProposalsList = ({ actProposals, onSelectActProposal }: ActPropo
               )}
             </div>
           </div>
+          <h2>{actProposal.title}</h2>
           <p>{actProposal.description}</p>
           <button onClick={() => onSelectActProposal(actProposal)}>Pokaż</button>
         </li>

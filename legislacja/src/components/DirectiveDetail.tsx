@@ -24,7 +24,6 @@ export const DirectiveDetail = ({ directive, onClose }: DirectiveDetailProps) =>
         {isActProposal && directive.signaturesCollected !== undefined && (
           <p><strong>Zebrane podpisy:</strong> <span className="signatures-collected">{directive.signaturesCollected.toLocaleString()}</span></p>
         )}
-        <p><strong>Opis:</strong> {directive.description}</p>
         {directive.tags && directive.tags.length > 0 && (
           <p>
             <strong>Tagi:</strong>{' '}
@@ -37,6 +36,7 @@ export const DirectiveDetail = ({ directive, onClose }: DirectiveDetailProps) =>
             </ul>
           </p>
         )}
+        <p><strong>Opis:</strong> {directive.description}</p>
         {isActProposal && directive.fileLink && (
           <p>
             <strong>Plik ustawy:</strong>{' '}
