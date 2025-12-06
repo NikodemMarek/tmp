@@ -47,7 +47,7 @@ export const directives: Directive[] = [
     stepDetails: generateStepDetails(3, '2024-02-20'),
   },
   {
-    title: 'Projetk ustawy',
+    title: 'Projekt ustawy',
     creationDate: '2024-03-10',
     status: 'anulowano',
     description: 'Ta dyrektywa dotyczyła gospodarki odpadami, ale została anulowana z powodu nowych priorytetów polityki.',

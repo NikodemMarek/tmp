@@ -10,7 +10,7 @@ export const ActProposalsList = ({ actProposals, onSelectActProposal }: ActPropo
   return (
     <div className="act-proposals-list">
       {actProposals.map((actProposal) => (
-        <div className="act-proposal-card" key={actProposal.title}>
+        <div className="card act-proposal-card" key={actProposal.title}>
           <div className="card-header">
             <h2>{actProposal.title}</h2>
             {actProposal.signaturesCollected !== undefined && (

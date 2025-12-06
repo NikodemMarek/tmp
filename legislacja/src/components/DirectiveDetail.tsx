@@ -11,7 +11,7 @@ export const DirectiveDetail = ({ directive, onClose }: DirectiveDetailProps) =>
   const isActProposal = directive.fileLink !== undefined || directive.signaturesCollected !== undefined;
 
   return (
-    <div className="directive-detail-card">
+    <div className="card directive-detail-card">
       <div className="card-header">
         <h2>{directive.title}</h2>
         <button onClick={onClose} className="close-button">Zamknij</button>
