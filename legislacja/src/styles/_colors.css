@@ -1,0 +1,40 @@
+:root {
+  /* Material Design Color System */
+  /* Primary Palette */
+  --md-sys-color-primary: #3F51B5; /* Indigo 500 */
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: #C5CAE9;
+  --md-sys-color-on-primary-container: #1A237E;
+
+  /* Secondary Palette */
+  --md-sys-color-secondary: #03DAC6; /* Teal accent */
+  --md-sys-color-on-secondary: #FFFFFF; /* Changed to White for clarity */
+  --md-sys-color-secondary-container: #B2DFDB;
+  --md-sys-color-on-secondary-container: #004D40;
+
+  /* Tertiary Palette */
+  --md-sys-color-tertiary: #673AB7; /* Deep Purple accent */
+  --md-sys-color-on-tertiary: #FFFFFF; /* Changed to White for clarity */
+  --md-sys-color-tertiary-container: #D1C4E9;
+  --md-sys-color-on-tertiary-container: #311B92;
+
+  /* Surface & Background */
+  --md-sys-color-background: #F8F8F8; /* Slightly off-white */
+  --md-sys-color-on-background: #1C1B1F; /* Dark gray text */
+  --md-sys-color-surface: #FFFFFF; /* Pure white for cards/elevated surfaces */
+  --md-sys-color-on-surface: #1C1B1F; /* Dark gray text */
+  --md-sys-color-surface-variant: #E0E0E0; /* Light gray for less prominent surfaces */
+  --md-sys-color-on-surface-variant: #49454F; /* Medium gray text/icons */
+
+  /* Error Palette */
+  --md-sys-color-error: #B00020; /* Standard Material Red for errors */
+  --md-sys-color-on-error: #FFFFFF; /* Changed to White for clarity */
+  --md-sys-color-error-container: #FDD8D8;
+  --md-sys-color-on-error-container: #410002;
+
+  /* Neutral Colors (General use, borders, light backgrounds) */
+  --md-sys-color-outline: #79747E; /* For borders, dividers */
+  --md-sys-color-inverse-surface: #313033; /* For dark mode inversion if needed later */
+  --md-sys-color-inverse-on-surface: #F0EFF4;
+  --md-sys-color-inverse-primary: #BBC2FF;
+}
