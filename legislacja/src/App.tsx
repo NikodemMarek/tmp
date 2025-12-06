@@ -58,8 +58,8 @@ function App() {
 
   return (
     <div className="app-container">
-      <header className="header">
-        <nav>
+      <header>
+        <nav className="header">
         <button
           className={currentPage === 'directives' ? 'active' : ''}
           onClick={() => {
@@ -107,6 +107,7 @@ function App() {
         <AddActProposalModal
           onClose={() => setIsAddModalOpen(false)}
           onSubmit={handleAddActProposal}
+          isOpen={isAddModalOpen}
         />
       )}
     </div>

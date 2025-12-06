@@ -30,47 +30,62 @@
 
 .header button {
   padding: 10px 20px;
-  border: 1px solid var(--md-sys-color-outline);
+  border: 1px solid black;
   border-radius: 5px;
-  background-color: var(--md-sys-color-surface-variant);
+  background-color: white;
+  color: black;
   cursor: pointer;
   font-size: 1rem;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.header button:hover {
+  background-color: #eee; /* Light gray on hover */
+  border-color: black;
+  color: black;
 }
 
 .header button.active {
-  background-color: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
-  border-color: var(--md-sys-color-primary);
+  background-color: black; /* Revert to black for active state */
+  color: white;
+  border-color: transparent; /* Changed to transparent border */
 }
 
 .add-act-proposal-button {
-  background-color: var(--md-sys-color-primary);
-  /* Green color for add button */
+  background-color: black;
   color: white;
-  border: none;
-  padding: 10px 15px;
+  border: none; /* Changed to no border */
+  padding: 10px 20px; /* Standardized padding */
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
   margin-left: auto;
-  /* Pushes the button to the right */
 }
 
 .add-act-proposal-button:hover {
-  background-color: var(--md-sys-color-primary-container);
+  background-color: #333;
+  border-color: transparent; /* Ensure no border on hover */
 }
 
-.modal-overlay {
+dialog.modal-overlay {
+  border-radius: 5px;
+  padding: 0; /* Remove default dialog padding */
+  background-color: transparent; /* Make dialog background transparent to show backdrop */
+
+  /* Centering and sizing for the dialog itself, if needed, but flex will center content */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: hsla(var(--md-sys-color-on-background), 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+}
+
+dialog.modal-overlay::backdrop {
+  background-color: hsla(var(--md-sys-color-on-background), 0.5); /* Overlay background */
 }
 
 .modal-content {
@@ -125,28 +140,32 @@
 
 .modal-actions button {
   padding: 10px 20px;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
 }
 
 .modal-actions button[type="submit"] {
-  background-color: var(--md-sys-color-primary);
+  background-color: black;
   color: white;
+  border: none; /* Changed to no border */
 }
 
 .modal-actions button[type="submit"]:hover {
-  background-color: var(--md-sys-color-primary-container);
+  background-color: #333;
+  border-color: transparent; /* Ensure no border on hover */
 }
 
 .modal-actions button[type="button"] {
-  background-color: var(--md-sys-color-outline);
-  color: white;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
 }
 
 .modal-actions button[type="button"]:hover {
-  background-color: var(--md-sys-color-on-surface-variant);
+  background-color: #eee;
+  border-color: black;
+  color: black;
 }
 
 .main-content-container {
@@ -245,42 +264,39 @@
 }
 
 .mobywatel-button {
-  background-color: var(--md-sys-color-secondary);
-  /* Green color for mObywatel */
-  color: var(--md-sys-color-on-secondary);
-  border: none;
-  padding: 10px 15px;
+  background-color: black;
+  color: white;
+  border: none; /* Changed to no border */
+  padding: 10px 20px; /* Standardized padding */
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
   margin-top: 1rem;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
 }
 
 .mobywatel-button:hover {
-  background-color: var(--md-sys-color-secondary-container);
+  background-color: #333;
+  border-color: transparent; /* Ensure no border on hover */
+  color: white;
 }
 
 .notification-button {
-  background-color: var(--md-sys-color-outline);
-  /* A neutral gray */
-  color: white;
-  border: none;
-  padding: 10px 15px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  padding: 10px 20px; /* Standardized padding */
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
-  margin-top: 1rem;
-  margin-left: 1rem;
-  /* Add some spacing if next to another button */
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
 }
 
 .notification-button:hover {
-
-  background-color: var(--md-sys-color-on-surface-variant);
-
+  background-color: #eee;
+  border: 1px solid black;
+  color: black;
 }
-
-
 
 .public-discussion-section {
 
@@ -546,7 +562,7 @@
 
 
 
-  padding: 8px 15px;
+  padding: 10px 20px; /* Standardized padding */
 
 
 
@@ -554,7 +570,7 @@
 
 
 
-  border: none;
+  border: none; /* Changed to no border */
 
 
 
@@ -570,7 +586,7 @@
 
 
 
-  background-color: var(--md-sys-color-primary);
+  background-color: black;
 
 
 
@@ -594,7 +610,23 @@
 
 
 
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -603,17 +635,53 @@
 
 
 .comment-input-area button:hover {
-  background-color: var(--md-sys-color-primary-container);
+
+
+
+
+
+
+
+  background-color: #333;
+
+
+
+
+
+
+
+  border-color: transparent; /* Ensure no border on hover */
+
+
+
+
+
+
+
+  color: white;
+
+
+
+
+
+
+
 }
 
 .cancel-reply-button {
-  background-color: var(--md-sys-color-outline) !important;
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid black !important;
   margin-left: 0.5rem;
+  padding: 10px 20px !important; /* Standardized padding */
+  border-radius: 5px !important;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
 }
 
 .cancel-reply-button:hover {
-  background-color: var(--md-sys-color-on-surface-variant) !important;
-
+  background-color: #eee !important;
+  border-color: black !important;
+  color: black !important;
 }
 
 .comments-list {
@@ -657,10 +725,14 @@
   cursor: pointer;
   padding: 0 0.5rem 0 0;
   font-size: 0.9em;
+  transition: color 0.25s; /* Keep transition for color */
 }
 
 .comment-actions button:hover {
+  color: var(--md-sys-color-primary);
   text-decoration: underline;
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .comment-replies {

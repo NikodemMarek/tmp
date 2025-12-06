@@ -1,20 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Directive } from '../types';
 
 type AddActProposalModalProps = {
   onClose: () => void;
   onSubmit: (newActProposal: Directive) => void;
+  isOpen: boolean; // Add isOpen prop to control modal visibility
 };
 
 export const AddActProposalModal: React.FC<AddActProposalModalProps> = ({
   onClose,
   onSubmit,
+  isOpen,
 }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState('');
   const [fileLink, setFileLink] = useState('');
   const [signaturesCollected, setSignaturesCollected] = useState(0);
+
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    const dialogElement = dialogRef.current;
+    if (dialogElement) {
+      if (isOpen) {
+        dialogElement.showModal();
+      } else {
+        dialogElement.close();
+      }
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    const dialogElement = dialogRef.current;
+    if (dialogElement) {
+      dialogElement.addEventListener('close', onClose);
+    }
+    return () => {
+      if (dialogElement) {
+        dialogElement.removeEventListener('close', onClose);
+      }
+    };
+  }, [onClose]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,8 +59,8 @@ export const AddActProposalModal: React.FC<AddActProposalModalProps> = ({
   };
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-content" role="dialog" aria-modal="true" aria-labelledby="add-act-proposal-modal-title">
+    <dialog ref={dialogRef} className="modal-overlay">
+      <div className="modal-content" aria-labelledby="add-act-proposal-modal-title">
         <h2 id="add-act-proposal-modal-title">Dodaj Nowy Projekt Ustawy</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -89,6 +116,7 @@ export const AddActProposalModal: React.FC<AddActProposalModalProps> = ({
           </div>
         </form>
       </div>
-    </div>
+    </dialog>
   );
 };
+
