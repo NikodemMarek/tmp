@@ -7,18 +7,7 @@ type DirectiveDetailProps = {
 };
 
 export const DirectiveDetail = ({ directive, onClose }: DirectiveDetailProps) => {
-  const getStatusClassName = (status: string) => {
-    switch (status) {
-      case 'ukończono':
-        return 'status-completed';
-      case 'w toku':
-        return 'status-in-progress';
-      case 'anulowano':
-        return 'status-cancelled';
-      default:
-        return '';
-    }
-  };
+  const isActProposal = directive.fileLink !== undefined || directive.signaturesCollected !== undefined;
 
   return (
     <div className="directive-detail-card">
@@ -28,7 +17,12 @@ export const DirectiveDetail = ({ directive, onClose }: DirectiveDetailProps) =>
       </div>
       <div className="directive-properties">
         <p className="date"><strong>Data Utworzenia:</strong> {directive.creationDate}</p>
-        <p><strong>Status:</strong> <span className={`status ${getStatusClassName(directive.status)}`}>{directive.status}</span></p>
+        {!isActProposal && directive.status && (
+          <p><strong>Status:</strong> <span className={`status status-${directive.status.replace(' ', '-')}`}>{directive.status}</span></p>
+        )}
+        {isActProposal && directive.signaturesCollected !== undefined && (
+          <p><strong>Zebrane podpisy:</strong> <span className="signatures-collected">{directive.signaturesCollected.toLocaleString()}</span></p>
+        )}
         <p><strong>Opis:</strong> {directive.description}</p>
         {directive.tags && directive.tags.length > 0 && (
           <p>
@@ -40,8 +34,21 @@ export const DirectiveDetail = ({ directive, onClose }: DirectiveDetailProps) =>
             ))}
           </p>
         )}
+        {isActProposal && directive.fileLink && (
+          <p>
+            <strong>Plik ustawy:</strong>{' '}
+            <a href={directive.fileLink} target="_blank" rel="noopener noreferrer">
+              Pobierz projekt
+            </a>
+          </p>
+        )}
+        {isActProposal && (
+          <button className="mobywatel-button" onClick={() => alert('Przekierowanie do mObywatel w celu podpisania projektu.')}>
+            Podpisz z mObywatel
+          </button>
+        )}
       </div>
-      <Roadmap currentStep={directive.currentStep} stepDetails={directive.stepDetails} />
+      {!isActProposal && directive.currentStep !== undefined && <Roadmap currentStep={directive.currentStep} stepDetails={directive.stepDetails} />}
     </div>
   );
 };

@@ -5,6 +5,8 @@ export type Directive = {
   description: string;
   currentStep: number;
   tags: string[];
+  fileLink?: string; // New: Link to the act proposal file
+  signaturesCollected?: number; // New: Number of signatures collected
   stepDetails?: {
     description: string;
     previousDescription?: string; // Added for diffing
