@@ -18,7 +18,7 @@ export const DirectiveList = ({ directives, onSelectDirective }: DirectiveListPr
           </div>
           <p>{directive.description}</p>
           <p className="date">{directive.creationDate}</p>
-          <button onClick={() => onSelectDirective(directive)}>View</button>
+          <button onClick={() => onSelectDirective(directive)}>Pokaż</button>
         </div>
       ))}
     </div>

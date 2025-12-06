@@ -54,15 +54,15 @@
   font-weight: bold;
 }
 
-.status-completed {
+.status-ukończono {
   background-color: #4caf50;
 }
 
-.status-in-progress {
+.status-w-toku {
   background-color: #ff9800;
 }
 
-.status-cancelled {
+.status-anulowano {
   background-color: #f44336;
 }
 
@@ -98,7 +98,7 @@
   background-color: #e0e0e0;
   border-radius: 4px;
   padding: 3px 8px;
-  margin-right: 5px;
+  margin-right: 8px; /* Added margin for separation */
   font-size: 0.85rem;
   color: #555;
 }
@@ -176,9 +176,30 @@
   border-radius: 0 0 5px 5px;
 }
 
+.diff-added {
+  color: green;
+  background-color: #e6ffe6;
+  text-decoration: none;
+}
+
+.diff-removed {
+  color: red;
+  background-color: #ffe6e6;
+  text-decoration: line-through;
+}
+
+.diff-view {
+  white-space: pre-wrap; /* Preserve whitespace and allow wrapping */
+}
+
 .roadmap-details p {
   margin-bottom: 0.5rem;
   color: #555;
+}
+
+.description-text {
+  font-size: 1.05rem; /* Slightly larger font size */
+  line-height: 1.5;
 }
 
 .roadmap-details p:last-child {
